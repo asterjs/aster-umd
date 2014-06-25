@@ -1,0 +1,25 @@
+<%
+  function factory(args) {
+    return {
+      type: 'CallExpression',
+      callee: {type: 'Identifier', name: 'factory'},
+      arguments: args
+    };
+  }
+%>
+(function (factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(<%= amdDeps %>, factory);
+  } else if (typeof exports === 'object') {
+    module.exports = <%= factory(cjsDeps) %>;
+  } else {
+    <%= exports %> = <%= factory(globalDeps) %>;
+  }
+})(<%= {
+  type: 'FunctionExpression',
+  params: depNames,
+  body: {
+    type: 'BlockStatement',
+    body: file.program.body
+  }
+} %>);
