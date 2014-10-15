@@ -47,9 +47,6 @@ it('test', function (done) {
 		]
 	})(Rx.Observable.fromArray(input))
 	.pluck('program')
-	.do(function (ast) {
-		require('fs').writeFileSync('ast.json', JSON.stringify(ast));
-	})
 	.map(generate)
 	// checking against array of expected results iteratively
 	.zip(expected, assert.equal)
