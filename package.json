@@ -1,6 +1,6 @@
 {
   "name": "aster-umd",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Wrap code to UMD with aster.",
   "author": "Ingvar Stepanyan <me@rreverser.com> (https://github.com/RReverser)",
   "repository": "asterjs/aster-umd",

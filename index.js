@@ -1,6 +1,6 @@
 'use strict';
 
-var tmpl = require('estemplate').compile(require('fs').readFileSync('template.jst', 'utf-8'));
+var tmpl = require('estemplate').compile(require('fs').readFileSync(__dirname + '/template.jst', 'utf-8'));
 var parse = require('esprima').parse;
 
 function normalizeDeps(deps) {
