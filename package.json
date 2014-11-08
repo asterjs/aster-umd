@@ -15,8 +15,6 @@
   ],
   "main": "index.js",
   "scripts": {
-    "prepublish": "node build",
-    "pretest": "npm run prepublish",
     "test": "mocha"
   },
   "dependencies": {
@@ -25,9 +23,8 @@
   "devDependencies": {
     "chai": "*",
     "escodegen": "^1.4.1",
-    "estemplate": "^0.1.1",
-    "js-beautify": "^1.5.1",
+    "estemplate": "^0.2.0",
     "mocha": "*",
-    "rx": "^2.3.11"
+    "rx": "^2.3.14"
   }
 }

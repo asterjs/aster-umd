@@ -1,6 +1,6 @@
 'use strict';
 
-var tmpl = require('./template');
+var tmpl = require('estemplate').compile(require('fs').readFileSync('template.jst', 'utf-8'));
 var parse = require('esprima').parse;
 
 function normalizeDeps(deps) {
@@ -32,7 +32,7 @@ module.exports = function (options) {
 
 	var deps = normalizeDeps(options.deps);
 
-	var amdDeps = {type: 'ArrayExpression', elements: deps.map(function (dep) { return literal(dep.amdName) })};
+	var amdDeps = deps.map(function (dep) { return literal(dep.amdName) });
 
 	var globalDeps = deps.map(function (dep) {
 		return {type: 'MemberExpression', object: id('root'), computed: false, property: id(dep.globalName)};
