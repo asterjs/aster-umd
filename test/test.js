@@ -11,7 +11,7 @@ var assert = require('chai').assert,
 it('test', function (done) {
 	var input = [{
 			type: 'File',
-			program: parse('return [jquery, jade, lodash]', {tolerant: true}),
+			program: parse('return [jQuery, jade, _]', {tolerant: true}),
 			loc: {
 				source: 'superLib.js'
 			}
@@ -27,13 +27,13 @@ it('test', function (done) {
 			'    } else if (typeof exports === \'object\') {\n' +
 			'        module.exports = factory(require(\'jquery\'), require(\'jade\'), require(\'lodash\'));\n' +
 			'    } else {\n' +
-			'        this.superLib = factory(root.jQuery, root.jade, root._);\n' +
+			'        superLib = factory(jQuery, jade, _);\n' +
 			'    }\n' +
-			'}(function (jquery, jade, lodash) {\n' +
+			'}(function (jQuery, jade, _) {\n' +
 			'    return [\n' +
-			'        jquery,\n' +
+			'        jQuery,\n' +
 			'        jade,\n' +
-			'        lodash\n' +
+			'        _\n' +
 			'    ];\n' +
 			'}));'
 		];

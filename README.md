@@ -43,6 +43,14 @@ Default: generated from filename (i.e. `superLib/smth.js` => `superLib.smth`).
 
 Global name (may be namespaced) for exported object.
 
+#### options.fromGlobal
+Type: `Boolean`
+Default: `false`
+
+When set to `true`, identifier from `options.exports` is assumed to be already set in code and will be used as exports.
+
+When set to `false` (default), value from top-level `return` statement will be used instead.
+
 #### options.deps
 Type: `Array(String | Object)`
 Default: `[]`
@@ -51,8 +59,8 @@ External dependencies array. Each item may be either string or extended object i
 ```js
 {
   name: '' // default name for any properties that aren't set
-  paramName: '', // parameter name for the wrapper function
   globalName: '', // global name for dependency
+  paramName: '', // parameter name for the wrapper function (defaults to `globalName`)
   amdName: '', // module name for the AMD dependency
   cjsName: '' // module name for the CJS dependency
 }
